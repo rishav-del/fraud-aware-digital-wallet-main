@@ -29,16 +29,14 @@ This project demonstrates full-stack development using Node.js, React, MySQL, an
 | 3   | RA2411028030041          | Susmita Sahoo         |
 
 ---
-
 ## Repository Folder Structure
 
-| Sr. | Description         | Link                          |
-|-----|--------------------|-------------------------------|
-| 1   | **Project Code**   | `backend / frontend / ml`     |
-| 2   | **Project Report** | `Project_Report.pdf`          |
-| 3   | **Project PPT**    | `Project_Presentation.pptx`   |
-
----
+| Sr. | Description | Link |
+|-----|------------|------|
+| 1 | **Project Code** | `backend / frontend / ml` |
+| 2 | **Project Report** | [View Report](./Project_Report.pdf) |
+| 3 | **Project PPT** | [View PPT](./Project_Presentation.pptx) |
+```
 
 ### Detailed Folder Structure (Project Code):
 
