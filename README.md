@@ -1,116 +1,155 @@
-# FraudAware Digital Wallet System
+# README.md
 
-Full-stack fintech prototype: MySQL + Node.js/Express + Firebase Auth + ML fraud detection.
+# Project Title
+**Fraud-Aware Digital Wallet System**
 
-## Project Structure
+---
+
+## Project Objective
+
+The Fraud-Aware Digital Wallet System is a web-based application designed to provide secure digital transactions with fraud detection capabilities.
+
+**Key Objectives:**
+- Enable users to manage digital wallet and transactions
+- Detect fraudulent transactions using backend logic and ML module
+- Provide real-time transaction monitoring
+- Maintain secure user data and transaction history
+- Reduce risks in digital payments through validation mechanisms
+
+This project demonstrates full-stack development using Node.js, React, MySQL, and Python.
+
+---
+
+## Team Members
+
+| Sr. | Registration Number      | Name                  |
+|-----|--------------------------|-----------------------|
+| 1   | RA2411028030032          | Rishav Kumar Gupta    |
+| 2   | RA2411028030025          | Darsh Tyagi           |
+| 3   | RA2411028030041          | Susmita Sahoo         |
+
+---
+
+## Repository Folder Structure
+
+| Sr. | Description         | Link                          |
+|-----|--------------------|-------------------------------|
+| 1   | **Project Code**   | `backend / frontend / ml`     |
+| 2   | **Project Report** | `Project_Report.pdf`          |
+| 3   | **Project PPT**    | `Project_Presentation.pptx`   |
+
+---
+
+### Detailed Folder Structure (Project Code):
 
 ```
-fraud-wallet/
-├── frontend/
-│   ├── index.html              ← Clean HTML (structure only)
-│   ├── css/
-│   │   ├── styles.css          ← Variables, reset, layout, nav, sidebar
-│   │   ├── components.css      ← Cards, buttons, forms, chips, tables, toasts
-│   │   └── pages.css           ← Dashboard, send, transactions, fraud, profile, login
-│   └── js/
-│       ├── config.js           ← API URL, Firebase config, constants
-│       ├── api.js              ← HTTP client, Firebase auth, demo mode
-│       ├── pages.js            ← All page data-loading logic
-│       └── app.js              ← Navigation, toast, modal, init
-├── backend/
-│   ├── server.js
-│   ├── config/ (db.js, firebase.js)
-│   ├── middleware/ (auth.js)
-│   ├── controllers/ (wallet, transaction, fraud)
-│   └── routes/ (api.js)
-├── ml/
-│   ├── train_model.py
-│   ├── fraud_api.py
-│   └── requirements.txt
-└── schema/
-    ├── 01_schema.sql
-    ├── 02_triggers_views.sql
-    └── 03_seed_data.sql
+fraud-aware-digital-wallet-main/
+├── backend/        # Node.js backend APIs
+├── frontend/       # React frontend
+├── ml/             # Python ML fraud detection
+├── schema/         # Database SQL files
+├── README.md
 ```
 
-## macOS Setup (Step-by-Step)
+```
+
+## Steps to Run the Project
 
 ### Prerequisites
+- Node.js installed
+- XAMPP (MySQL)
+- Python installed
+- Postman (for API testing)
 
-```bash
-brew install mysql node python3
-brew services start mysql
-mysql_secure_installation
 ```
 
-### Step 1: Database
+### Step-by-Step Installation
 
-```bash
-cd fraud-wallet
-mysql -u root -p < schema/01_schema.sql
-mysql -u root -p < schema/02_triggers_views.sql
-mysql -u root -p < schema/03_seed_data.sql
+1. **Download the Project**
+   - Download ZIP and extract
+
 ```
 
-### Step 2: ML Model (Terminal tab 1)
+2. **Setup Database**
+   - Open XAMPP and start Apache + MySQL
+   - Open phpMyAdmin: http://localhost/phpmyadmin
+   - Create database: `fraud_wallet`
+   - Import files from `schema` folder:
+     - 01_schema.sql
+     - 02_triggers_views.sql
+     - 03_seed_data.sql
 
-```bash
-cd fraud-wallet/ml
-python3 -m venv venv && source venv/bin/activate
-pip install -r requirements.txt
-python train_model.py
-python fraud_api.py    # keep running on :5001
 ```
 
-### Step 3: Backend (Terminal tab 2)
+3. **Configure Backend**
+   - Go to backend folder
+   - Create `.env` file:
+```
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=
+DB_NAME=fraud_wallet
+PORT=3000
+```
 
-```bash
-cd fraud-wallet/backend
+```
+4. **Run Backend**
+```
+cd backend
 npm install
-cp .env.example .env   # edit DB_PASSWORD
-node server.js         # keep running on :3000
+npm start
 ```
 
-### Step 4: Open Browser
-
-```bash
-open http://localhost:3000
 ```
 
-Click "Demo Login" — done!
+5. **Run Application**
 
-## Demo curl Commands
+Open in browser:
+http://localhost:3000
 
-```bash
-# Normal transaction
-curl -X POST http://localhost:3000/api/send-money \
-  -H "Content-Type: application/json" \
-  -H "X-Demo-User-Email: arjun@mail.com" \
-  -d '{"recipient_email":"sneha@mail.com","amount":500,"note":"Lunch"}'
-
-# Suspicious high-value
-curl -X POST http://localhost:3000/api/send-money \
-  -H "Content-Type: application/json" \
-  -H "X-Demo-User-Email: amit@mail.com" \
-  -d '{"recipient_email":"neha@mail.com","amount":50000}'
-
-# Rapid burst
-for i in 1 2 3 4 5; do
-  curl -s -X POST http://localhost:3000/api/send-money \
-    -H "Content-Type: application/json" \
-    -H "X-Demo-User-Email: arjun@mail.com" \
-    -d '{"recipient_email":"priya@mail.com","amount":200}' &
-done; wait
-
-# Add money
-curl -X POST http://localhost:3000/api/add-money \
-  -H "Content-Type: application/json" \
-  -H "X-Demo-User-Email: arjun@mail.com" \
-  -d '{"amount":5000}'
-
-# Fraud check only
-curl -X POST http://localhost:3000/api/fraud-check \
-  -H "Content-Type: application/json" \
-  -H "X-Demo-User-Email: arjun@mail.com" \
-  -d '{"amount":75000}'
 ```
+
+6. **Test API (Postman)**
+
+POST request:
+http://localhost:3000/api/check-email
+
+Body:
+
+{
+"email": "arjun@mail.com"
+}
+
+```
+
+## Features Implemented
+
+- Digital wallet system
+- Transaction management
+- Fraud detection logic
+- API-based architecture
+- MySQL database integration
+- Postman API testing
+
+```
+
+## Technologies Used
+
+- Frontend: React, HTML, CSS
+- Backend: Node.js, Express
+- Database: MySQL
+- ML: Python (Flask)
+- Tools: XAMPP, Postman
+
+```
+
+## Project Submitted By
+
+Rishav Kumar Gupta  
+Darsh Tyagi  
+Susmita Sahoo  
+
+B.Tech CSE (Cloud Computing) – Section A  
+SRM Institute of Science and Technology, Ghaziabad  
+
+Academic Year: 2025-2026
