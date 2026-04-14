@@ -1,0 +1,8 @@
+node_modules/
+backend/node_modules/
+backend/.env
+backend/config/serviceAccountKey.json
+ml/venv/
+ml/model/
+__pycache__/
+.DS_Store
