@@ -35,7 +35,7 @@ This project demonstrates full-stack development using Node.js, React, MySQL, an
 |-----|------------|------|
 | 1 | **Project Code** | `backend / frontend / ml` |
 | 2 | **Project Report** | [View Report](./Project_Report.pdf) |
-| 3 | **Project PPT** | [View PPT](./Project_Presentation.pptx) |
+| 3 | **Project PPT** | [View PPT](./Project_Presentation.pdf) |
 ```
 
 ### Detailed Folder Structure (Project Code):
