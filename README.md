@@ -20,14 +20,6 @@ This project demonstrates full-stack development using Node.js, React, MySQL, an
 
 ---
 
-## Team Members
-
-| Sr. | Registration Number      | Name                  |
-|-----|--------------------------|-----------------------|
-| 1   | RA2411028030032          | Rishav Kumar Gupta    |
-| 2   | RA2411028030025          | Darsh Tyagi           |
-| 3   | RA2411028030041          | Susmita Sahoo         |
-
 ---
 ## Repository Folder Structure
 
@@ -141,13 +133,3 @@ Body:
 
 ```
 
-## Project Submitted By
-
-Rishav Kumar Gupta  
-Darsh Tyagi  
-Susmita Sahoo  
-
-B.Tech CSE (Cloud Computing) – Section A  
-SRM Institute of Science and Technology, Ghaziabad  
-
-Academic Year: 2025-2026
